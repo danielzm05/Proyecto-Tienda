@@ -121,7 +121,7 @@ body{
 	flex-wrap: wrap;
 }
 
-.mostrarProductos > div{ /* .product */
+.product { /*.mostrarProductos > div*/
   display: flex;
   flex-direction: column;
 	width: 250px;

@@ -1,4 +1,4 @@
-/* Efecto Header */
+// ---------EFECTO HEADER---------
 window.addEventListener("scroll", function(){
     var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0);
@@ -6,7 +6,7 @@ window.addEventListener("scroll", function(){
 
 let btnCrear = document.getElementById("btn-crear");
 let formulario = document.getElementById("formulario");
-
+let cardsContainer = document.getElementById("cardsContainer");
 
 // ---------FORMULARIO---------
 // control de boton que activa formulario
@@ -33,16 +33,34 @@ btnCrear.onclick = (e) => {
 }
 
 class Producto {
-    constructor(nombre, año, precio) {
+    constructor(nombre, año, precio, img) {
       this.nombre = nombre;
       this.año = año;
       this.precio = precio;
+      this.img = img;
     }
 }
 
-let listaProductos = JSON.parse(localStorage.getItem("productos")) || [
-    {nombre: "Camiseta Titular Boca Juniors Adidas ", año:"2022", precio: "35000"},
-    {nombre: "Camiseta Titular Real Madrid Adidas", año:"2023", precio: "55000"},
-    {nombre: "Camiseta Inter de Miami Visitante Adidas", año:"2023", precio: "50000"},
-    {nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año:"2022", precio: "50000"},
+let productos = [
+    {nombre: "Camiseta Titular Boca Juniors Adidas ", año:"2022", precio: "35000", img:"./assets/img/camisetas/Boca_Home_2022.png"},
+    {nombre: "Camiseta Titular Real Madrid Adidas", año:"2023", precio: "55000", img:"./assets/img/camisetas/RMadrid_Home_2023.png"},
+    {nombre: "Camiseta Inter de Miami Visitante Adidas", año:"2023", precio: "50000", img:"./assets/img/camisetas/IMiami_Away_2023.png"},
+    {nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año:"2022", precio: "50000", img:"./assets/img/camisetas/ARgentina_Home_2022.png"},
 ]
+
+productos.forEach((producto) => {
+  let content = document.createElement("div");
+  content.className = "product";
+  content.innerHTML = `
+  <img src="${producto.img}">
+  <div class="product-info">
+    <p class="product-year">${producto.año}</p>
+    <p class="product-title">${producto.nombre}</p>
+    <h3 class="product-price">$ ${producto.precio}</h3> 
+    <input class="prouduct-btn" type="submit" value="Comprar">
+    </div>
+    `;
+
+    cardsContainer.append(content);
+});
+

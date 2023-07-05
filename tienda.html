@@ -23,23 +23,13 @@
           <h1>Añadir Producto</h1>
           <form>
             <div class="txt_field">
-              <input
-                type="text"
-                id="productoAñadir"
-                name="nombreDelProducto"
-                required
-              />
+              <input type="text" id="productoAñadir" required />
               <span></span>
               <label>Nombre:</label>
             </div>
 
             <div class="txt_field">
-              <input
-                type="number"
-                id="productoAñadir"
-                name="añoDelProducto"
-                required
-              />
+              <input type="number" id="añoAñadir" required />
               <span></span>
               <label>Año:</label>
             </div>
@@ -51,7 +41,7 @@
             </div>
 
             <div class="txt_field">
-              <input type="text" id="ImagenAñadir" required />
+              <input type="text" id="imagenAñadir" required />
               <span></span>
               <label>Url Imagen:</label>
             </div>
@@ -61,9 +51,10 @@
         </div>
       </div>
 
+      <!-- --------PRODUCTOS--------- -->
       <div class="productos">
         <h2>Tendencias</h2>
-        <div class="mostrarProductos" id="mostrarProductos"></div>
+        <div id="cardsContainer" class="cards"></div>
       </div>
     </div>
     <script src="./assets/js/tienda.js"></script>
