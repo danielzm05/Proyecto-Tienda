@@ -11,6 +11,17 @@ body{
 	background: #ffffff;
   color: #333333;
 }
+/*____________________Vista Admin*/
+
+.main-admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: #333333 2px solid ;
+}
+
+
 /*____________________Formulario*/
 .añadir{
   width: 400px;
@@ -82,6 +93,7 @@ body{
   height: 50px;
   margin: 0 0 30px 0;
   background: #333333;
+  border: 1px solid;
   border-radius: 20px;
   font-size: 18px;
   color: #ffffff;
@@ -109,7 +121,7 @@ body{
 	flex-wrap: wrap;
 }
 
-.product{
+.mostrarProductos > div{ /* .product */
   display: flex;
   flex-direction: column;
 	width: 250px;
@@ -153,7 +165,8 @@ body{
   height: 250px;
 	margin-top: 10px;
 }
-input[type="submit"]{
+
+.product input[type="submit"]{
   width: 90px;
   height: 40px;
   margin: 0 0 30px 0;
@@ -166,7 +179,7 @@ input[type="submit"]{
   outline: none;
 }
 
-input[type="submit"]:hover{
+.product input[type="submit"]:hover{
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;

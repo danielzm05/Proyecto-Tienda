@@ -2,94 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpg" href=".\assets\img\favicon.ico"/>
+    <link rel="icon" type="image/jpg" href=".\assets\img\favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/tienda.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/tienda.css" />
     <title>La Casaca | Tienda</title>
   </head>
   <body>
     <div class="contenedor">
-
-      <div class="añadir">
+      <!-- --------VISTA ADMIN--------- -->
+      <div class="main-admin">
+        <!-- Boton Crear -->
+        <a href="" class="btn btn-primary" id="btn-crear">Crear un producto</a>
+        <!-- Formulario -->
+        <div class="añadir" id="formulario">
           <h1>Añadir Producto</h1>
           <form>
-              <div class="txt_field">
-                <input type="text" id="productoAñadir" name="nombreDelProducto" required>
-                <span></span>
-                <label>Nombre:</label>
-              </div>
+            <div class="txt_field">
+              <input
+                type="text"
+                id="productoAñadir"
+                name="nombreDelProducto"
+                required
+              />
+              <span></span>
+              <label>Nombre:</label>
+            </div>
 
-              <div class="txt_field">
-                <input type="number" id="productoAñadir" name="añoDelProducto" required>
-                <span></span>
-                <label>Año:</label>
-              </div>
+            <div class="txt_field">
+              <input
+                type="number"
+                id="productoAñadir"
+                name="añoDelProducto"
+                required
+              />
+              <span></span>
+              <label>Año:</label>
+            </div>
 
-              <div class="txt_field">
-                <input type="number" id="valorAñadir" required>
-                <span></span>
-                <label>Valor:</label>
-              </div>
+            <div class="txt_field">
+              <input type="number" id="valorAñadir" required />
+              <span></span>
+              <label>Valor:</label>
+            </div>
 
-              <div class="txt_field">
-                <input type="text" id="ImagenAñadir" required>
-                <span></span>
-                <label>Url Imagen:</label>
-              </div>
+            <div class="txt_field">
+              <input type="text" id="ImagenAñadir" required />
+              <span></span>
+              <label>Url Imagen:</label>
+            </div>
 
-              <input class="button" type="submit" value="Añadir">
+            <input class="button" type="submit" value="Añadir" />
           </form>
+        </div>
       </div>
 
-
-<!--         <div class="productos">
-            <h2>Tendencias</h2>
-            <div class="cards">
-                <div class="product">
-                    <img src=".\assets\img\camisetas\Boca_Home_2022.png">
-                    <div class="product-info">
-                        <p class="product-year">2022-23</p>
-                        <p class="product-title">Camiseta Titular Boca Juniors Adidas</p>
-                        <h3 class="product-price">35.000</h3>
-                        <input class="prouduct-btn" type="submit" value="Comprar">
-                    </div>
-                </div>
-                <div class="product">
-                    <img src=".\assets\img\camisetas\RMadrid_Home_2023.png">
-                    <div class="product-info">
-                        <p class="product-year">2023</p>
-                        <p class="product-title">Camiseta Titular Real Madrid Adidas</p>
-                        <h3 class="product-price">55.000</h3>
-                        <input class="prouduct-btn" type="submit" value="Comprar">
-                    </div>
-                    
-                </div>
-                <div class="product">
-                    <img src="assets\img\camisetas\IMiami_Away_2023.png">
-                    <div class="product-info">
-                        <p class="product-year">2023</p>
-                        <p class="product-title">Camiseta Inter de Miami Visitante Adidas </p>
-                        <h3 class="product-price">50.000</h3>
-                        <input class="prouduct-btn" type="submit" value="Comprar">
-                    </div>
-                </div>
-    
-                <div class="product">
-                    <img src="assets\img\camisetas\Argentina_Home_2022.png">
-                    <div class="product-info">
-                        <p class="product-year">2022</p>
-                        <p class="product-title">Camiseta Argentina Campeón del Mundo Titular Adidas</p>
-                        <h3 class="product-price">40.000</h3>
-                        <input class="prouduct-btn" type="submit" value="Comprar">
-                    </div>
-                </div>
-                
-            </div>
-        </div> -->
-
+      <div class="productos">
+        <h2>Tendencias</h2>
+        <div class="mostrarProductos" id="mostrarProductos"></div>
+      </div>
     </div>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/tienda.js"></script>
   </body>
 </html>
