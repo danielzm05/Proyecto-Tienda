@@ -1,16 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400;1,500&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Lora", serif;
 }
 
-body{
-	background: #ffffff;
+body {
+  background: #ffffff;
   color: #333333;
 }
+
+
+
 /*____________________Vista Admin*/
 
 .main-admin {
@@ -18,34 +21,164 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: #333333 2px solid ;
+  border: #333333 2px solid;
 }
 
+/*____________________Header*/
+
+.contenedor .header li,
+.contenedor .header a,
+.contenedor .header button {
+  font-weight: 400;
+  font-size: 16px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.contenedor .header {
+  /* position: fixed; */
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 3%;
+  z-index: 10000;
+  transition: 0.6s;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 0 5px 0;
+  grid-area: header;
+}
+
+.contenedor .header .logo {
+  font-weight: 600;
+  font-size: 40px;
+  font-style: italic;
+}
+
+.contenedor .header .nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.contenedor .header .nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.contenedor .header .nav_links li a:hover {
+  color: #706c61;
+}
+
+.contenedor .header button {
+  padding: 6px 15px;
+  font-style: italic;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.contenedor .header button:hover,
+.contenedor header.sticky button {
+  color: #333333;
+  background-color: #ffffff;
+}
+
+.contenedor header.sticky {
+  background-color: #ffffff;
+  padding: 20px 90px;
+}
+
+.contenedor header.sticky li a,
+header.sticky .logo {
+  color: #333333;
+}
+
+/*____________________Carrito*/
+.modal-container {
+  width: 80%;
+  margin: 0 10%;
+  max-height: 88vh;
+  color: #fff;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*for the top*/
+  position: fixed;
+  overflow: auto;
+  z-index: 9;
+  top: 12vh;
+  scrollbar-color: none;
+}
+
+.modal-container::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0a0909;
+  color: #fff;
+  width: 100%;
+}
+
+.modal-header-title {
+  justify-self: start;
+}
+
+.modal-header-button {
+  cursor: pointer;
+}
+
+.modal-container>.modal-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  margin: 10px;
+}
+
+.modal-container>div>img {
+  height: 120px;
+  width: 120px;
+}
+
+.total-content {
+  font-size: 25px;
+  padding: 20px;
+  text-align: center;
+  padding-top: 20px;
+}
 
 /*____________________Formulario*/
-.añadir{
+.añadir {
   width: 400px;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.445);
 }
 
-.añadir h1{
+.añadir h1 {
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid #706c61;
 }
 
-.añadir form{
+.añadir form {
   padding: 0 40px;
 }
 
-.añadir form .txt_field{
+.añadir form .txt_field {
   position: relative;
   border-bottom: 1px solid #706c61;
   margin: 30px 0;
 }
 
-.añadir form .txt_field input{
+.añadir form .txt_field input {
   width: 100%;
   padding: 0 5px;
   height: 40px;
@@ -55,7 +188,7 @@ body{
   outline: none;
 }
 
-.añadir form .txt_field label{
+.añadir form .txt_field label {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -66,7 +199,7 @@ body{
   transition: .5s;
 }
 
-.añadir form .txt_field span::before{
+.añadir form .txt_field span::before {
   content: '';
   position: absolute;
   top: 40px;
@@ -77,18 +210,18 @@ body{
   transition: .5s;
 }
 
-.añadir form .txt_field input:focus ~ label,
-.añadir form .txt_field input:valid ~ label{
+.añadir form .txt_field input:focus~label,
+.añadir form .txt_field input:valid~label {
   top: -5px;
   color: #2691d9;
 }
 
-.añadir form .txt_field input:focus ~ span::before,
-.añadir form .txt_field input:valid ~ span::before{
+.añadir form .txt_field input:focus~span::before,
+.añadir form .txt_field input:valid~span::before {
   width: 100%;
 }
 
-.añadir form input[type="submit"]{
+.añadir form input[type="submit"] {
   width: 100%;
   height: 50px;
   margin: 0 0 30px 0;
@@ -102,7 +235,7 @@ body{
   outline: none;
 }
 
-.añadir form input[type="submit"]:hover{
+.añadir form input[type="submit"]:hover {
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;
@@ -111,62 +244,63 @@ body{
 
 
 /*____________________Productos*/
-.productos h2{
+.productos h2 {
   padding: 20px 0 0 40px;
 }
 
 .cards {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.product { /*.mostrarProductos > div*/
+.product {
   display: flex;
   flex-direction: column;
-	width: 250px;
-	height: 450px;
-  margin: 20px 20px; 
+  width: 250px;
+  height: 450px;
+  margin: 20px 20px;
   border-radius: 10px;
   background: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.280) 0px 2px 8px;
-	transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .product:hover {
   cursor: pointer;
-	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.200);
-}
-
-.product .product-info{
-  border-top: 1px #706c61 solid;
-  width: 100%;
-	font-size: 14px ;
-  text-align: left;
-  padding: 5px 10px 0 10px ;
-}
-.product .product-info .product-title{
-  width: 100%;
-	height: 60px;
-}
-
-.product .product-info .product-year{
-	font-size: 10px ;
-	font-weight: 600;
-}
-
-.product .product-info .product-price{
-	margin: 10px 0;
-	font-size: 18px ;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.200);
 }
 
 .product img {
   width: 100%;
   height: 250px;
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
-.product input[type="submit"]{
+.product .product-info {
+  border-top: 1px #706c61 solid;
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+  padding: 5px 10px 0 10px;
+}
+
+.product .product-info .product-title {
+  width: 100%;
+  height: 60px;
+}
+
+.product .product-info .product-year {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.product .product-info .product-price {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.product .product-info .product-btn {
   width: 90px;
   height: 40px;
   margin: 0 0 30px 0;
@@ -179,7 +313,7 @@ body{
   outline: none;
 }
 
-.product input[type="submit"]:hover{
+.product .product-info .product-btn:hover {
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;

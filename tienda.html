@@ -14,12 +14,25 @@
   </head>
   <body>
     <div class="contenedor">
+
+      <header class="header">
+        <a class="logo" href="index.html">La casaca</a>
+        <nav>
+          <ul class="nav_links">
+            <li><a id="verHome" href="index.html">Home</a></li>
+            <li><a id="verTienda" href="tienda.html">Tienda</a></li>
+            <li><a id="verCarrito" href="#">Carrito</a></li>
+          </ul>
+        </nav>
+        <a class="cta" href="form.html"><button>Login</button></a>
+      </header>
+
       <!-- --------VISTA ADMIN--------- -->
-      <div class="main-admin">
+      <!-- <div class="main-admin"> -->
         <!-- Boton Crear -->
-        <a href="" class="btn btn-primary" id="btn-crear">Crear un producto</a>
-        <!-- Formulario -->
-        <div class="añadir" id="formulario">
+<!--         <a href="" class="MostrarFormulario" id="btn-mostrar-formulario">Crear un producto</a>
+ -->        <!-- Formulario -->
+        <!-- <div class="añadir" id="formulario">
           <h1>Añadir Producto</h1>
           <form>
             <div class="txt_field">
@@ -49,13 +62,15 @@
             <input class="button" type="submit" value="Añadir" />
           </form>
         </div>
-      </div>
+      </div> -->
 
       <!-- --------PRODUCTOS--------- -->
       <div class="productos">
         <h2>Tendencias</h2>
         <div id="cardsContainer" class="cards"></div>
       </div>
+
+      <div id="modalContainer" class="modal-container"></div>
     </div>
     <script src="./assets/js/tienda.js"></script>
   </body>
