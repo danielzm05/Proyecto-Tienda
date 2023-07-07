@@ -12,18 +12,6 @@ body {
   color: #333333;
 }
 
-
-
-/*____________________Vista Admin*/
-
-.main-admin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: #333333 2px solid;
-}
-
 /*____________________Header*/
 
 .contenedor .header li,
@@ -97,21 +85,25 @@ header.sticky .logo {
 }
 
 /*____________________Carrito*/
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
 .modal-container {
-  width: 80%;
-  margin: 0 10%;
-  max-height: 88vh;
-  color: #fff;
-  background-color: #121212;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*for the top*/
-  position: fixed;
+  max-height: 80vh;
   overflow: auto;
   z-index: 9;
-  top: 12vh;
-  scrollbar-color: none;
+  color: #333333;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .modal-container::-webkit-scrollbar {
@@ -120,27 +112,25 @@ header.sticky .logo {
 
 .modal-header {
   display: flex;
-  justify-content: space-around;
-  background-color: #0a0909;
-  color: #fff;
+  justify-content: space-between;
   width: 100%;
-}
-
-.modal-header-title {
-  justify-self: start;
+  padding: 20px 20px;
+  color: #333333;
+  border-bottom: 1px solid #706c61;
 }
 
 .modal-header-button {
   cursor: pointer;
+  font-size: 20px;
 }
 
 .modal-container>.modal-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 70%;
-  margin: 10px;
+  width: 90%;
+  border-bottom: 1px solid #706c61;
 }
 
 .modal-container>div>img {
@@ -149,15 +139,26 @@ header.sticky .logo {
 }
 
 .total-content {
-  font-size: 25px;
-  padding: 20px;
-  text-align: center;
-  padding-top: 20px;
+  width: 100%;
+  text-align: right;
+  padding: 20px 5% 20px 0;
+  color: #ffffff;
+  background-color: #333333;
+}
+
+/*____________________Vista Admin*/
+
+.main-admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: #333333 1px solid;
 }
 
 /*____________________Formulario*/
 .añadir {
-  width: 400px;
+  width: 30%;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.445);
 }
@@ -240,8 +241,6 @@ header.sticky .logo {
   background: #706c61;
   transition: .5s;
 }
-
-
 
 /*____________________Productos*/
 .productos h2 {

@@ -20,7 +20,7 @@ const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
 
 if (adminLogin.admin) {
 
-  vistaAdmin.style.display = "block";
+  vistaAdmin.style.display = "flex";
   btnLoginHeader.innerText = "Cerrar Sesión";
 
   btnLoginHeader.addEventListener("click", () => {
@@ -54,6 +54,7 @@ let productos = [
   { nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
 ]
 
+//Crea Productos HTML
 productos.forEach((producto) => {
   let product = document.createElement("div");
   product.className = "product";
@@ -129,8 +130,7 @@ verCarrito.addEventListener("click", () => {
   const total = carrito.reduce((acc, num) => acc + num.precio, 0);
   const totalCarrito = document.createElement("div");
   totalCarrito.className = "total-content";
-  totalCarrito.innerHTML = `total a pagar: $ ${total}
-    `;
+  totalCarrito.innerHTML = `<h3 class="product-price">Total: $${total}</h3>`;
   modalContainer.append(totalCarrito);
 
 
