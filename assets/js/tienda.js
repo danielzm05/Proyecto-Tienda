@@ -9,9 +9,8 @@ let btnCrear = document.getElementById("btn-mostrar-formulario"); //Cambiar btnC
 let vistaAdmin = document.getElementById("vista-admin");
 let btnLoginHeader = document.getElementById("btn-nav-login");
 let cardsContainer = document.getElementById("cardsContainer");
-let verCarrito = document.getElementById("verCarrito");
 let modalContainer = document.getElementById("modalContainer");
-
+let cantidadCarrito = document.getElementById("cantidad-carrito");
 
 // Vista Admin
 const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
@@ -25,7 +24,7 @@ if (adminLogin.admin) {
 
   btnLoginHeader.addEventListener("click", () => {
     adminLogin.admin = false;
-    alert("Haz cerrado sesión.")
+    alert("Has cerrado sesión.")
     localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
   });
 
@@ -39,7 +38,8 @@ let carrito = [];
 
 // Clase Producto y constructor
 class producto {
-  constructor(nombre, año, precio, img) {
+  constructor(id, nombre, año, precio, img) {
+    this.nombre = id;
     this.nombre = nombre;
     this.año = año;
     this.precio = precio;
@@ -48,10 +48,10 @@ class producto {
 }
 
 let productos = [
-  { nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
-  { nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
-  { nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
-  { nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
+  { id: "001", nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
+  { id: "002", nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
+  { id: "003", nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
+  { id: "004", nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
 ]
 
 //Crea Productos HTML
@@ -88,51 +88,8 @@ productos.forEach((producto) => {
       img: producto.img,
     });
     console.log(carrito);
+    carritoCounter();
   });
 });
 
-// Funcion del Botón Agregar en Cards
-verCarrito.addEventListener("click", () => {
-
-  modalContainer.innerHTML = "";
-  modalContainer.style.display = "flex";
-
-  const modalHeader = document.createElement("div");
-  modalHeader.className = "modal-header";
-  modalHeader.innerHTML = `
-  <h1 class="modal-header-title">Carrito</h1> 
-  `;
-  modalContainer.append(modalHeader);
-
-  const modalbutton = document.createElement("h1");
-  modalbutton.innerText = "x";
-  modalbutton.className = "modal-header-button";
-
-  modalbutton.addEventListener("click", () => {
-    modalContainer.style.display = "none";
-  });
-
-  modalHeader.append(modalbutton);
-
-
-  carrito.forEach((producto) => {
-    let carritoContent = document.createElement("div");
-    carritoContent.className = "modal-content";
-    carritoContent.innerHTML = `
-    <img src="${producto.img}">
-    <p class="product-title">${producto.nombre}</p>
-    <h3 class="product-price">$ ${producto.precio}</h3> 
-    `;
-
-    modalContainer.append(carritoContent);
-  });
-
-  const total = carrito.reduce((acc, num) => acc + num.precio, 0);
-  const totalCarrito = document.createElement("div");
-  totalCarrito.className = "total-content";
-  totalCarrito.innerHTML = `<h3 class="product-price">Total: $${total}</h3>`;
-  modalContainer.append(totalCarrito);
-
-
-})
 

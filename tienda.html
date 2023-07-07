@@ -21,8 +21,9 @@
           <ul class="nav_links">
             <li><a id="verHome" href="index.html">Home</a></li>
             <li><a id="verTienda" href="tienda.html">Tienda</a></li>
-            <li><a id="verCarrito" href="#">Carrito</a></li>
+            <li><a id="verCarrito" href="#"><span id="cantidad-carrito" class="cantidadCarrito"></span>Carrito </a></li>
           </ul>
+          <span id="cantidad-carrito" class="cantidadCarrito"></span>
         </nav>
         <a href="form.html"><button id="btn-nav-login" class="loginButton">Login</button></a>
       </header>
@@ -33,6 +34,12 @@
          <!-- Formulario -->
         <div class="añadir" >
           <form>
+            <div class="txt_field">
+              <input type="text" id="idAñadir" required />
+              <span></span>
+              <label>ID:</label>
+            </div>
+            
             <div class="txt_field">
               <input type="text" id="productoAñadir" required />
               <span></span>
@@ -73,5 +80,6 @@
       </div>
     </div>
     <script src="./assets/js/tienda.js"></script>
+    <script src="./assets/js/carrito.js"></script>
   </body>
 </html>

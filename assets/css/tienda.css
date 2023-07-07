@@ -57,6 +57,14 @@ body {
   color: #706c61;
 }
 
+.cantidadCarrito {
+  color: #e20c0c;
+  border-radius: 50%;
+  border: 1px #f80000 solid;
+  display: none;
+
+}
+
 .contenedor .header .loginButton {
   padding: 6px 15px;
   font-style: italic;
@@ -131,6 +139,10 @@ header.sticky .logo {
   align-items: center;
   width: 90%;
   border-bottom: 1px solid #706c61;
+}
+
+.delete-product {
+  cursor: pointer;
 }
 
 .modal-container>div>img {
