@@ -50,8 +50,10 @@ const pintarCarrito = () => {
 
 }
 
+//Botón Carrito Header Muestra el carrito
 verCarrito.addEventListener("click", pintarCarrito);
 
+//Función eliminar producto del carrito
 const eliminarProducto = () => {
     const foundId = carrito.find((element) => element.id);
 
@@ -59,10 +61,17 @@ const eliminarProducto = () => {
         return carritoId !== foundId
     });
     carritoCounter();
+    saveLocal();
     pintarCarrito();
 };
 
+//Función Contador Carrito
 const carritoCounter = () => {
     cantidadCarrito.style.display = "block";
-    cantidadCarrito.innerText = carrito.length;
+    const carritoLength = carrito.length;
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
 };
+
+carritoCounter();

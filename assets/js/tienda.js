@@ -34,7 +34,7 @@ if (adminLogin.admin) {
 }
 
 // Carrito
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // Clase Producto y constructor
 class producto {
@@ -87,9 +87,15 @@ productos.forEach((producto) => {
       precio: producto.precio,
       img: producto.img,
     });
-    console.log(carrito);
     carritoCounter();
+    saveLocal()
   });
 });
 
+//set
+const saveLocal = () => {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
+
+//get

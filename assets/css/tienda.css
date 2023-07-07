@@ -46,10 +46,11 @@ body {
 
 .contenedor .header .nav_links li {
   display: inline-block;
-  padding: 0px 20px;
+  margin: 0 0 0 20px;
 }
 
 .contenedor .header .nav_links li a {
+  display: flex;
   transition: all 0.3s ease 0s;
 }
 
@@ -58,10 +59,16 @@ body {
 }
 
 .cantidadCarrito {
-  color: #e20c0c;
-  border-radius: 50%;
-  border: 1px #f80000 solid;
+  width: 15px;
+  height: 15px;
   display: none;
+  font-size: 10px;
+  align-items: center;
+  text-align: center;
+  color: #333333;
+  border-radius: 50%;
+  border: 1px #333333 solid;
+  margin: 0 0 0 3px;
 
 }
 
