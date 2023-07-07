@@ -5,7 +5,7 @@
 }) */
 
 // ELementos
-let btnCrear = document.getElementById("btn-mostrar-formulario"); //Cambiar btnCrear a btnMostrar
+let btnCrear = document.getElementById("btn-crear-producto");
 let vistaAdmin = document.getElementById("vista-admin");
 let btnLoginHeader = document.getElementById("btn-nav-login");
 let cardsContainer = document.getElementById("cardsContainer");
@@ -54,48 +54,76 @@ let productos = [
   { id: "004", nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
 ]
 
-//Crea Productos HTML
-productos.forEach((producto) => {
-  let product = document.createElement("div");
-  product.className = "product";
-  product.innerHTML = `
-  <img src="${producto.img}">
-    `;
 
-  let productInfo = document.createElement("div");
-  productInfo.className = "product-info";
-  productInfo.innerHTML = `
-    <p class="product-year">${producto.año}</p>
-    <p class="product-title">${producto.nombre}</p>
-    <h3 class="product-price">$ ${producto.precio}</h3> 
-    </div>
-    `;
-  product.appendChild(productInfo);
 
-  let comprar = document.createElement("button")
-  comprar.innerText = "Agregar"
-  comprar.className = "product-btn"
-  productInfo.appendChild(comprar);
+//Formulario Crear Producto
+btnCrear.addEventListener("click", (e) => {
+  e.preventDefault()
 
-  cardsContainer.append(product);
-
-  comprar.addEventListener("click", () => {
-    carrito.push({
-      id: producto.id,
-      nombre: producto.nombre,
-      año: producto.año,
-      precio: producto.precio,
-      img: producto.img,
-    });
-    carritoCounter();
-    saveLocal()
+  const id = document.getElementById("id-añadir").value.trim();
+  const nombre = document.getElementById("nombre-añadir").value.trim();
+  const año = document.getElementById("año-añadir").value.trim();
+  const precio = parseFloat(document.getElementById("precio-añadir").value);
+  const imagen = document.getElementById("img-añadir").value.trim();
+  productos.push({
+    id: id,
+    nombre: nombre,
+    año: año,
+    precio: precio,
+    img: imagen,
   });
+
+
+  /* console.log(id + " " + nombre + " " + año + " " + precio + " " + imagen); */
+  console.log(productos);
+  crearCardsHTML();
 });
+
+//Crea Productos HTML
+const crearCardsHTML = () => {
+  cardsContainer.innerHTML = ``;
+
+  productos.forEach((elemento) => {
+    let product = document.createElement("div");
+    product.className = "product";
+    product.innerHTML = `
+    <img src="${elemento.img}">
+      `;
+
+    let productInfo = document.createElement("div");
+    productInfo.className = "product-info";
+    productInfo.innerHTML = `
+      <p class="product-year">${elemento.año}</p>
+      <p class="product-title">${elemento.nombre}</p>
+      <h3 class="product-price">$ ${elemento.precio}</h3> 
+      </div>
+      `;
+    product.appendChild(productInfo);
+
+    let comprar = document.createElement("button")
+    comprar.innerText = "Agregar"
+    comprar.className = "product-btn"
+    productInfo.appendChild(comprar);
+
+    cardsContainer.append(product);
+
+    comprar.addEventListener("click", () => {
+      carrito.push({
+        id: elemento.id,
+        nombre: elemento.nombre,
+        año: elemento.año,
+        precio: elemento.precio,
+        img: elemento.img,
+      });
+      carritoCounter();
+      saveLocal()
+    });
+  });
+}
 
 //set
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-
-//get
+crearCardsHTML();
