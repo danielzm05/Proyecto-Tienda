@@ -69,7 +69,7 @@ body {
   color: #706c61;
 }
 
-.contenedor .header button {
+.contenedor .header .loginButton {
   padding: 6px 15px;
   font-style: italic;
   background-color: #333333;
@@ -80,7 +80,7 @@ body {
   transition: all 0.3s ease 0s;
 }
 
-.contenedor .header button:hover,
+.contenedor .header .loginButton:hover,
 .contenedor header.sticky button {
   color: #333333;
   background-color: #ffffff;

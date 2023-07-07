@@ -1,33 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400;1,500&display=swap");
 
- * {
-	margin: 0;
-	padding: 0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Lora", serif;
 }
 
 body {
-	background: #FFFFFF;
+  background: #FFFFFF;
   color: #333333;
 }
 
 .contenedor {
-	width: 100%;
-	display: grid;
-	grid-gap: none;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(5, auto);
+  width: 100%;
+  display: grid;
+  grid-gap: none;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, auto);
 
-	grid-template-areas: 
-            "header header"
-						 "main_banner main_banner"
-						 "banner img_banner"
-             "productos productos"
-						 "footer footer";
+  grid-template-areas:
+    "header header"
+    "main_banner main_banner"
+    "banner img_banner"
+    "productos productos"
+    "footer footer";
 }
 
-/*____________________Header*/ 
+/*____________________Header*/
 
 .contenedor .header li,
 .contenedor .header a,
@@ -71,7 +71,7 @@ body {
   color: #706c61;
 }
 
-.contenedor .header button {
+.contenedor .header .loginButton {
   padding: 6px 15px;
   font-style: italic;
   background-color: #ffffff;
@@ -82,8 +82,8 @@ body {
   transition: all 0.3s ease 0s;
 }
 
-.contenedor .header button:hover,
-.contenedor header.sticky button{
+.contenedor .header .loginButton:hover,
+.contenedor header.sticky .loginButton {
   color: #ffffff;
   background-color: #333333;
 }
@@ -97,7 +97,7 @@ body {
 .contenedor header.sticky li a,
 header.sticky .logo {
   color: #333333;
-} 
+}
 
 /*____________________Contenido*/
 /*Banner Principal*/
@@ -136,72 +136,75 @@ header.sticky .logo {
   grid-area: img_banner;
 }
 
-.img_banner img{
+.img_banner img {
   height: 95vh;
   width: auto;
 }
 
 /*Productos*/
-.productos{
+.productos {
   grid-area: productos;
   margin: 50px 0 0 0;
 }
-.productos h2{
+
+.productos h2 {
   padding: 0 0 20px 40px;
 }
 
 .cards {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.product{
+.product {
   display: flex;
   flex-direction: column;
-	width: 250px;
-	height: 450px;
-  margin: 20px 20px; 
+  width: 250px;
+  height: 450px;
+  margin: 20px 20px;
   border-radius: 10px;
   background: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.280) 0px 2px 8px;
-	transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .product:hover {
   cursor: pointer;
-	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.200);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.200);
 }
 
-.product .product-info{
+.product .product-info {
   border-top: 1px #706c61 solid;
   width: 100%;
-	font-size: 14px ;
+  font-size: 14px;
   text-align: left;
-  padding: 5px 10px 0 10px ;
+  padding: 5px 10px 0 10px;
 }
-.product .product-info .product-title{
+
+.product .product-info .product-title {
   width: 100%;
-	height: 60px;
+  height: 60px;
 }
 
-.product .product-info .product-year{
-	font-size: 10px ;
-	font-weight: 600;
+.product .product-info .product-year {
+  font-size: 10px;
+  font-weight: 600;
 }
 
-.product .product-info .product-price{
-	margin: 10px 0;
-	font-size: 18px ;
+.product .product-info .product-price {
+  margin: 10px 0;
+  font-size: 18px;
 }
 
 .product img {
   width: 100%;
   height: 250px;
   object-fit: cover;
-	margin-top: 10px;
+  margin-top: 10px;
 }
-input[type="submit"]{
+
+input[type="submit"] {
   width: 90px;
   height: 40px;
   margin: 0 0 30px 0;
@@ -214,7 +217,7 @@ input[type="submit"]{
   outline: none;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;
@@ -223,14 +226,14 @@ input[type="submit"]:hover{
 
 /*____________________Footer*/
 .contenedor footer {
-	background: #333333;
-	color: #fff;
+  background: #333333;
+  color: #fff;
   margin: 50px 0 0 0;
   padding: 30px 0 0 0;
   grid-area: footer;
 }
 
-.contenedor footer .footer_content{
+.contenedor footer .footer_content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,14 +241,14 @@ input[type="submit"]:hover{
   text-align: center;
 }
 
-.contenedor footer .footer_content h3{
+.contenedor footer .footer_content h3 {
   font-weight: 600;
   font-size: 30px;
   font-style: italic;
 }
 
 .contenedor footer .footer_content .nav_links,
-.contenedor footer .footer_content .socials{
+.contenedor footer .footer_content .socials {
   display: flex;
   list-style: none;
   align-items: center;
@@ -254,27 +257,27 @@ input[type="submit"]:hover{
 }
 
 .contenedor footer .footer_content .nav_links li,
-.contenedor footer .footer_content .socials li{
+.contenedor footer .footer_content .socials li {
   margin: 0 10px;
 }
 
 .contenedor footer .footer_content .nav_links a,
-.contenedor footer .footer_content .socials a{
+.contenedor footer .footer_content .socials a {
   color: #fff;
   transition: all 0.3s ease 0s;
   text-decoration: none;
 }
 
 .contenedor footer .footer_content .nav_links a:hover,
-.contenedor footer .footer_content .socials a:hover{
+.contenedor footer .footer_content .socials a:hover {
   color: #706c61;
 }
 
-.contenedor footer .footer_content .socials i{
+.contenedor footer .footer_content .socials i {
   font-size: 20px;
 }
 
-.contenedor footer .footer_content .footer_copyright{
+.contenedor footer .footer_content .footer_copyright {
   color: #706c61;
   font-size: 10px;
   font-style: italic;
@@ -282,15 +285,15 @@ input[type="submit"]:hover{
 }
 
 
-@media screen and (max-width: 768px){
-	.contenedor {
-    grid-template-areas: 
-    "header header"
-    "main_banner main_banner"
-    "img_banner img_banner"
-    "banner banner"
-    "productos productos"
-    "footer footer";
+@media screen and (max-width: 768px) {
+  .contenedor {
+    grid-template-areas:
+      "header header"
+      "main_banner main_banner"
+      "img_banner img_banner"
+      "banner banner"
+      "productos productos"
+      "footer footer";
 
-	}
+  }
 }

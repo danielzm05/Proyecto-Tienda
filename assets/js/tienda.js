@@ -1,19 +1,40 @@
-// ---------EFECTO HEADER---------
-/* window.addEventListener("scroll", function(){
-    var header = document.querySelector("header");
-    header.classList.toggle("sticky", window.scrollY > 0);
+// Efecto Header
+/* window.addEventListener("scroll", function () {
+  var header = document.querySelector("header");
+  header.classList.toggle("sticky", window.scrollY > 0);
 }) */
 
-//ELementos
+// ELementos
 let btnCrear = document.getElementById("btn-mostrar-formulario"); //Cambiar btnCrear a btnMostrar
-let formulario = document.getElementById("formulario");
-
+let vistaAdmin = document.getElementById("vista-admin");
+let btnLoginHeader = document.getElementById("btn-nav-login");
 let cardsContainer = document.getElementById("cardsContainer");
 let verCarrito = document.getElementById("verCarrito");
 let modalContainer = document.getElementById("modalContainer");
 
 
-//Carrito
+// Vista Admin
+const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
+  admin: false,
+};
+
+if (adminLogin.admin) {
+
+  vistaAdmin.style.display = "block";
+  btnLoginHeader.innerText = "Cerrar Sesión";
+
+  btnLoginHeader.addEventListener("click", () => {
+    adminLogin.admin = false;
+    alert("Haz cerrado sesión.")
+    localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
+  });
+
+} else {
+
+  vistaAdmin.style.display = "none";
+}
+
+// Carrito
 let carrito = [];
 
 // Clase Producto y constructor
@@ -69,7 +90,7 @@ productos.forEach((producto) => {
   });
 });
 
-//Funcion del Botón Agregar en Cards
+// Funcion del Botón Agregar en Cards
 verCarrito.addEventListener("click", () => {
 
   modalContainer.innerHTML = "";
