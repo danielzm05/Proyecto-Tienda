@@ -18,10 +18,10 @@ const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
 };
 
 if (adminLogin.admin) {
-
   vistaAdmin.style.display = "flex";
   btnLoginHeader.innerText = "Cerrar Sesión";
 
+  //Botón cerrar sesión
   btnLoginHeader.addEventListener("click", () => {
     adminLogin.admin = false;
     alert("Has cerrado sesión.")
@@ -29,7 +29,6 @@ if (adminLogin.admin) {
   });
 
 } else {
-
   vistaAdmin.style.display = "none";
 }
 
@@ -47,14 +46,12 @@ class producto {
   }
 }
 
-let productos = [
+let productos = JSON.parse(localStorage.getItem("misProductos")) || [
   { id: "001", nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
   { id: "002", nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
   { id: "003", nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
   { id: "004", nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
 ]
-
-
 
 //Formulario Crear Producto
 btnCrear.addEventListener("click", (e) => {
@@ -76,6 +73,7 @@ btnCrear.addEventListener("click", (e) => {
 
   /* console.log(id + " " + nombre + " " + año + " " + precio + " " + imagen); */
   console.log(productos);
+  saveLocalmisProductos();
   crearCardsHTML();
 });
 
@@ -88,7 +86,7 @@ const crearCardsHTML = () => {
     product.className = "product";
     product.innerHTML = `
     <img src="${elemento.img}">
-      `;
+    `;
 
     let productInfo = document.createElement("div");
     productInfo.className = "product-info";
@@ -96,6 +94,7 @@ const crearCardsHTML = () => {
       <p class="product-year">${elemento.año}</p>
       <p class="product-title">${elemento.nombre}</p>
       <h3 class="product-price">$ ${elemento.precio}</h3> 
+      
       </div>
       `;
     product.appendChild(productInfo);
@@ -107,6 +106,7 @@ const crearCardsHTML = () => {
 
     cardsContainer.append(product);
 
+    //Funcion al dar click en el botón "Agregar" de las cards
     comprar.addEventListener("click", () => {
       carrito.push({
         id: elemento.id,
@@ -116,14 +116,18 @@ const crearCardsHTML = () => {
         img: elemento.img,
       });
       carritoCounter();
-      saveLocal()
+      saveLocalCarrito()
     });
   });
 }
 
-//set
-const saveLocal = () => {
+//Funcion guardar en el carrito de localStorage
+const saveLocalCarrito = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+const saveLocalmisProductos = () => {
+  localStorage.setItem("misProductos", JSON.stringify(productos));
 }
 
 crearCardsHTML();
