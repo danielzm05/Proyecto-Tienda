@@ -47,32 +47,45 @@ class producto {
 }
 
 let productos = JSON.parse(localStorage.getItem("misProductos")) || [
-  { id: "001", nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
-  { id: "002", nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
-  { id: "003", nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
-  { id: "004", nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
+  { id: 1, nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
+  { id: 2, nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
+  { id: 3, nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
+  { id: 4, nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
 ]
 
 //Formulario Crear Producto
 btnCrear.addEventListener("click", (e) => {
   e.preventDefault()
 
-  const id = document.getElementById("id-añadir").value.trim();
+  const id = productos.length + 1;
   const nombre = document.getElementById("nombre-añadir").value.trim();
   const año = document.getElementById("año-añadir").value.trim();
   const precio = parseFloat(document.getElementById("precio-añadir").value);
   const imagen = document.getElementById("img-añadir").value.trim();
-  productos.push({
-    id: id,
-    nombre: nombre,
-    año: año,
-    precio: precio,
-    img: imagen,
-  });
 
-  console.log(productos);
-  saveLocalmisProductos();
-  crearCardsHTML();
+  if (nombre != "" && año.length == 4 && precio > 0 && imagen != "") {
+
+    document.getElementById("nombre-añadir").value = "";
+    document.getElementById("año-añadir").value = "";
+    document.getElementById("precio-añadir").value = "";
+    document.getElementById("img-añadir").value = "";
+
+    productos.push({
+      id: id,
+      nombre: nombre,
+      año: año,
+      precio: precio,
+      img: imagen,
+    });
+
+    console.log(productos);
+    saveLocalmisProductos();
+    crearCardsHTML();
+
+  } else {
+    alert("Rellene bien los campos")
+  }
+
 });
 
 //Crea Productos HTML
@@ -85,6 +98,7 @@ const crearCardsHTML = () => {
     let product = document.createElement("div");
     product.className = "product";
     product.innerHTML = `
+    <h3 class="productEliminar">x</h3> 
     <img src="${elemento.img}">
     `;
 
@@ -95,7 +109,6 @@ const crearCardsHTML = () => {
       <p class="product-year">${elemento.año}</p>
       <p class="product-title">${elemento.nombre}</p>
       <h3 class="product-price">$ ${elemento.precio}</h3> 
-      <span class="productEliminar">Eliminar Producto</span> 
       </div>
       `;
     product.appendChild(productInfo);
@@ -110,7 +123,7 @@ const crearCardsHTML = () => {
     cardsContainer.append(product);
 
     //Oculto botón Eliminar Card si es Admin
-    let btnEliminarCard = productInfo.querySelector(".productEliminar");
+    let btnEliminarCard = product.querySelector(".productEliminar");
     btnEliminarCard.style.display = "none";
     if (adminLogin.admin) {
       btnEliminarCard.style.display = "inline-block";

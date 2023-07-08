@@ -172,17 +172,19 @@ header.sticky .logo {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: #333333;
   border-bottom: #333333 1px solid;
 }
 
 /*____________________Formulario*/
 .añadir {
-  width: 30%;
+  width: 400px;
   border-radius: 10px;
+  background-color: #ffffff;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.445);
 }
 
-.añadir h1 {
+.añadir form h1 {
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid #706c61;
@@ -287,6 +289,16 @@ header.sticky .logo {
 .product:hover {
   cursor: pointer;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.200);
+}
+
+.product .productEliminar {
+  text-align: right;
+  color: #333333;
+  margin: 0 10px 0 0;
+}
+
+.product .productEliminar:hover {
+  color: #d81616;
 }
 
 .product img {
