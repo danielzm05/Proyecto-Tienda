@@ -70,8 +70,6 @@ btnCrear.addEventListener("click", (e) => {
     img: imagen,
   });
 
-
-  /* console.log(id + " " + nombre + " " + año + " " + precio + " " + imagen); */
   console.log(productos);
   saveLocalmisProductos();
   crearCardsHTML();
@@ -82,29 +80,46 @@ const crearCardsHTML = () => {
   cardsContainer.innerHTML = ``;
 
   productos.forEach((elemento) => {
+
+    //Card Con Imagen del Producto
     let product = document.createElement("div");
     product.className = "product";
     product.innerHTML = `
     <img src="${elemento.img}">
     `;
 
+    //Product Info
     let productInfo = document.createElement("div");
     productInfo.className = "product-info";
     productInfo.innerHTML = `
       <p class="product-year">${elemento.año}</p>
       <p class="product-title">${elemento.nombre}</p>
       <h3 class="product-price">$ ${elemento.precio}</h3> 
-      
+      <span class="productEliminar">Eliminar Producto</span> 
       </div>
       `;
     product.appendChild(productInfo);
 
+    //Botón Agregar al Carrito
     let comprar = document.createElement("button")
     comprar.innerText = "Agregar"
     comprar.className = "product-btn"
     productInfo.appendChild(comprar);
 
+    //Muestro las Card en el div contenedor
     cardsContainer.append(product);
+
+    //Oculto botón Eliminar Card si es Admin
+    let btnEliminarCard = productInfo.querySelector(".productEliminar");
+    btnEliminarCard.style.display = "none";
+    if (adminLogin.admin) {
+      btnEliminarCard.style.display = "inline-block";
+    }
+
+    //Funcion al dar click en el botón "Eliminar Producto" de las cards
+    btnEliminarCard.addEventListener("click", () => {
+      eliminarCard(elemento.id)
+    });
 
     //Funcion al dar click en el botón "Agregar" de las cards
     comprar.addEventListener("click", () => {
@@ -116,9 +131,20 @@ const crearCardsHTML = () => {
         img: elemento.img,
       });
       carritoCounter();
-      saveLocalCarrito()
+      saveLocalCarrito();
     });
+
   });
+}
+
+const eliminarCard = (id) => {
+  const buscaId = productos.find((element) => element.id == id);
+
+  productos = productos.filter((productosId) => {
+    return productosId !== buscaId;
+  });
+  crearCardsHTML();
+  saveLocalmisProductos();
 }
 
 //Funcion guardar en el carrito de localStorage
