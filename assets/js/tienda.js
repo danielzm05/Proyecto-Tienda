@@ -1,8 +1,8 @@
 // Efecto Header
-/* window.addEventListener("scroll", function () {
+window.addEventListener("scroll", function () {
   var header = document.querySelector("header");
   header.classList.toggle("sticky", window.scrollY > 0);
-}) */
+})
 
 // ELementos
 let btnCrear = document.getElementById("btn-crear-producto");
@@ -24,7 +24,7 @@ if (adminLogin.admin) {
   //Botón cerrar sesión
   btnLoginHeader.addEventListener("click", () => {
     adminLogin.admin = false;
-    alert("Has cerrado sesión.")
+    cerrarSesionAlert();
     localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
   });
 
@@ -50,7 +50,12 @@ let productos = JSON.parse(localStorage.getItem("misProductos")) || [
   { id: 1, nombre: "Camiseta Titular Boca Juniors Adidas ", año: "2022", precio: 35000, img: "./assets/img/camisetas/Boca_Home_2022.png" },
   { id: 2, nombre: "Camiseta Titular Real Madrid Adidas", año: "2023", precio: 55000, img: "./assets/img/camisetas/RMadrid_Home_2023.png" },
   { id: 3, nombre: "Camiseta Inter de Miami Visitante Adidas", año: "2023", precio: 50000, img: "./assets/img/camisetas/IMiami_Away_2023.png" },
-  { id: 4, nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/ARgentina_Home_2022.png" },
+  { id: 4, nombre: "Camiseta Argentina Campeón del Mundo Titular Adidas", año: "2022", precio: 50000, img: "./assets/img/camisetas/Argentina_Home_2022.png" },
+  { id: 5, nombre: "Camiseta Argentina Visitante Adidas", año: "2006", precio: 40000, img: "./assets/img/camisetas/Argentina_Away_2006.png" },
+  { id: 6, nombre: "Camiseta Velez Sarsfield Titular Topper", año: "2005", precio: 30000, img: "./assets/img/camisetas/Velez_Home_2005.png" },
+  { id: 7, nombre: "Camiseta Boca Juniors TitulasAdidas", año: "2006", precio: 50000, img: "./assets/img/camisetas/Boca_Home_2006.png" },
+  { id: 8, nombre: "Camiseta River Plate Titular Adidas", año: "2001", precio: 40000, img: "./assets/img/camisetas/River_Home_2001.png" },
+
 ]
 
 //Formulario Crear Producto
@@ -78,12 +83,12 @@ btnCrear.addEventListener("click", (e) => {
       img: imagen,
     });
 
-    console.log(productos);
+    productoCreadoAlert();
     saveLocalmisProductos();
     crearCardsHTML();
 
   } else {
-    alert("Rellene bien los campos")
+    errorAlert();
   }
 
 });
@@ -150,21 +155,12 @@ const crearCardsHTML = () => {
   });
 }
 
-const eliminarCard = (id) => {
-  const buscaId = productos.find((element) => element.id == id);
-
-  productos = productos.filter((productosId) => {
-    return productosId !== buscaId;
-  });
-  crearCardsHTML();
-  saveLocalmisProductos();
-}
-
 //Funcion guardar en el carrito de localStorage
 const saveLocalCarrito = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+//Funcion guardar productos en localStorage
 const saveLocalmisProductos = () => {
   localStorage.setItem("misProductos", JSON.stringify(productos));
 }

@@ -14,13 +14,12 @@ loginButton.addEventListener("click", (e) => {
     const contraseña = document.getElementById("contraseña").value
 
     if (usuario == "xeneize" && contraseña == "123456") {
-        alert("Bienvenido " + usuario)
+        bienvenidoLoginAlert();
         window.location.href = "../tienda.html";
         adminLogin.admin = true;
 
     } else {
-
-        alert("Usuario o Contraseña Incorrecta")
+        errorAlert();
     }
 
     localStorage.setItem("adminLogin", JSON.stringify(adminLogin));

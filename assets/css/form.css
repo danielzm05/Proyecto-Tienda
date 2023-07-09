@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400;1,500&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,15 +13,15 @@ body {
 }
 
 .contenedor {
-	width: 100%;
-	display: grid;
-	grid-gap: none;
-	grid-template-columns: repeat(1, 1fr);
-	grid-template-rows: repeat(2, auto);
+  width: 100%;
+  display: grid;
+  grid-gap: none;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, auto);
 
-	grid-template-areas: 
-            "header"
-			"form"
+  grid-template-areas:
+    "header"
+    "form"
 }
 
 /*____________________Header*/
@@ -47,7 +47,7 @@ body {
 }
 
 .contenedor .header .logo {
-    justify-content: center;
+  justify-content: center;
   font-weight: 600;
   font-size: 40px;
   font-style: italic;
@@ -68,7 +68,7 @@ body {
 
 /*____________________Formulario*/
 
-.center{
+.center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -80,23 +80,23 @@ body {
   grid-area: form;
 }
 
-.center h1{
+.center h1 {
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid #706c61;
 }
 
-.center form{
+.center form {
   padding: 0 40px;
 }
 
-form .txt_field{
+form .txt_field {
   position: relative;
   border-bottom: 1px solid #706c61;
   margin: 30px 0;
 }
 
-.txt_field input{
+.txt_field input {
   width: 100%;
   padding: 0 5px;
   height: 40px;
@@ -105,7 +105,8 @@ form .txt_field{
   background: none;
   outline: none;
 }
-.txt_field label{
+
+.txt_field label {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -115,8 +116,8 @@ form .txt_field{
   pointer-events: none;
   transition: .5s;
 }
-  
-.txt_field span::before{
+
+.txt_field span::before {
   content: '';
   position: absolute;
   top: 40px;
@@ -126,17 +127,19 @@ form .txt_field{
   background: #2691d9;
   transition: .5s;
 }
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label{
+
+.txt_field input:focus~label,
+.txt_field input:valid~label {
   top: -5px;
   color: #2691d9;
 }
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
+
+.txt_field input:focus~span::before,
+.txt_field input:valid~span::before {
   width: 100%;
 }
 
-input[type="submit"]{
+input[type="submit"] {
   width: 100%;
   height: 50px;
   margin: 0 0 30px 0;
@@ -150,8 +153,14 @@ input[type="submit"]{
   outline: none;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;
+}
+
+/*____________________Alertas*/
+.alert {
+  border-radius: 10px;
+  color: #333333;
 }

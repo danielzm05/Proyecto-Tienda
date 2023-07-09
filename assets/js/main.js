@@ -18,7 +18,7 @@ if (adminLogin.admin) {
 
     btnLoginHeader.addEventListener("click", () => {
         adminLogin.admin = false;
-        alert("Has cerrado sesión.")
+        cerrarSesionAlert();
         localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
     });
 
