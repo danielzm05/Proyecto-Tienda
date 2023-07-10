@@ -11,6 +11,7 @@ let btnLoginHeader = document.getElementById("btn-nav-login");
 let cardsContainer = document.getElementById("cardsContainer");
 let modalContainer = document.getElementById("modalContainer");
 let cantidadCarrito = document.getElementById("cantidad-carrito");
+let btnLogin = document.getElementById("btn-login");
 
 // Vista Admin
 const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
@@ -20,13 +21,15 @@ const adminLogin = JSON.parse(localStorage.getItem("adminLogin")) || {
 if (adminLogin.admin) {
   vistaAdmin.style.display = "flex";
   btnLoginHeader.innerText = "Cerrar Sesión";
+  btnLogin.href = "form.html";
 
-  //Botón cerrar sesión
-  btnLoginHeader.addEventListener("click", () => {
-    adminLogin.admin = false;
-    cerrarSesionAlert();
-    localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
-  });
+
+  /*   //Botón cerrar sesión
+    btnLoginHeader.addEventListener("click", () => {
+      cerrarSesionAlert();
+      adminLogin.admin = false;
+      localStorage.setItem("adminLogin", JSON.stringify(adminLogin));
+    }); */
 
 } else {
   vistaAdmin.style.display = "none";
@@ -162,6 +165,10 @@ const saveLocalCarrito = () => {
 
 //Funcion guardar productos en localStorage
 const saveLocalmisProductos = () => {
+  localStorage.setItem("misProductos", JSON.stringify(productos));
+}
+
+const sampleFunction = () => {
   localStorage.setItem("misProductos", JSON.stringify(productos));
 }
 

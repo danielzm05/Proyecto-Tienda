@@ -100,14 +100,62 @@ header.sticky .logo {
 }
 
 /*____________________Contenido*/
-/*Banner Principal*/
-.contenedor .main_banner {
-  position: relative;
-  width: 100%;
+
+.slider {
+  overflow: hidden;
   height: 100vh;
-  background: url(../img/inicio/boca_banner.jpg);
-  background-size: cover;
   grid-area: main_banner;
+}
+
+.slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+.slider figure img {
+  float: left;
+  width: 20%;
+}
+
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+
+  20% {
+    left: 0;
+  }
+
+  25% {
+    left: -100%;
+  }
+
+  45% {
+    left: -100%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  70% {
+    left: -200%;
+  }
+
+  75% {
+    left: -300%;
+  }
+
+  95% {
+    left: -300%;
+  }
+
+  100% {
+    left: -400%;
+  }
 }
 
 /*Banner 2*/
