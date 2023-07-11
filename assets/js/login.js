@@ -13,7 +13,7 @@ loginButton.addEventListener("click", (e) => {
     const usuario = document.getElementById("usuario").value.trim();
     const contraseña = document.getElementById("contraseña").value
 
-    if (usuario == "xeneize" && contraseña == "123456") {
+    if (usuario == "admin" && contraseña == "123456") {
         bienvenidoLoginAlert();
         window.location.href = "../tienda.html";
         adminLogin.admin = true;

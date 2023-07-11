@@ -16,16 +16,26 @@
     <div class="contenedor">
 
       <header class="header">
-        <a class="logo" href="index.html">La casaca</a>
+        <a class="logo" href="tienda.html">La casaca</a>
         <nav>
           <ul class="nav_links">
-            <li><a id="verHome" href="index.html">Home</a></li>
             <li><a id="verTienda" href="tienda.html">Tienda</a></li>
             <li><a id="verCarrito" href="#">Carrito <span id="cantidad-carrito" class="cantidadCarrito"></span></a></li>
+            <li><a id="verMas" href="#">Más</a></li>
           </ul>
         </nav>
         <a href="form.html"><button id="btn-nav-login" class="loginButton">Login</button></a>
       </header>
+
+      <div class="slider">
+        <figure>
+          <img src="assets\img\inicio\Boca_carousel.jpg">
+          <img src="assets\img\inicio\Barcelona_carousel.png">
+          <img src="assets\img\inicio\Venezia_carousel.png">
+          <img src="assets\img\inicio\RMadrid_carousel.png">
+          <img src="assets\img\inicio\Boca_carousel.jpg">
+        </figure>
+      </div>
 
       <!-- --------VISTA ADMIN--------- -->
       <div class="main-admin" id="vista-admin">
@@ -65,13 +75,36 @@
 
       <!-- --------PRODUCTOS--------- -->
       <div class="productos">
-        <h2>Tendencias</h2>
+        <h1>Camisetas</h1>
         <div id="cardsContainer" class="cards"></div>
       </div>
 
       <div class="center">
         <div id="modalContainer" class="modal-container"></div>
       </div>
+
+      <!-- --------FOOTER--------- -->
+      <footer>
+        <div class="footer_content">
+          <h3>La Casaca</h3>
+
+          <ul class="socials">
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          </ul>
+          <nav>
+            <ul class="nav_links">
+              <li><a href="tienda.html">Tienda</a></li>
+              <li><a href="#">Carrito</a></li>
+              <li><a href="form.html">Login</a></li>
+            </ul>
+          </nav>
+          <div class="footer_copyright">
+            <p>Copyright 2023 Desarrollado por Daniel Zerpa</p>
+          </div>
+        </div>
+      </footer>
     </div>
     <script src="./assets/js/tienda.js"></script>
     <script src="./assets/js/carrito.js"></script>
