@@ -15,7 +15,7 @@ loginButton.addEventListener("click", (e) => {
 
     if (usuario == "admin" && contraseña == "123456") {
         bienvenidoLoginAlert();
-        window.location.href = "../index.html";
+        window.location.href = "index.html";
         adminLogin.admin = true;
 
     } else {
