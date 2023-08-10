@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/jpg" href=".\assets\img\favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/contacto.css">
+  <title>La Casaca | Contacto</title>
+</head>
+
+<body>
+  <div class="contenedor">
+    <header class="header">
+      <a class="logo" href="index.html">La casaca</a>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="index.html">Tienda</a></li>
+          <li><a href="form.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="center">
+      <h1>Mensaje</h1>
+      <form id="form">
+
+        <div class="txt_field">
+          <input type="text" name="from_name" id="from_name" required>
+          <span></span>
+          <label for="from_name">Nombre</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="text" name="message" id="message" required>
+          <span></span>
+          <label for="message">Mensaje</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="text" name="email_id" id="email_id" required>
+          <span></span>
+          <label for="email_id">Email</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="number" name="phone_id" id="phone_id" required>
+          <span></span>
+          <label for="phone_id">Telefono</label>
+        </div>
+
+        <input type="submit" id="button" value="Enviar Mensaje">
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    emailjs.init('hmqrZ4c7E3mCwqi-3')
+  </script>
+
+  <script src="./assets/js/contacto.js"></script>
+</body>
+
+</html>

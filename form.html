@@ -1,50 +1,52 @@
--m<!DOCTYPE html>
-<html lang="en" >
-  <head>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/jpg" href=".\assets\img\favicon.ico"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>La Casaca | Login </title>
-    <link rel="stylesheet" href="assets/css/form.css">
-  </head>
-  <body>
-    <div class="contenedor">
+<!DOCTYPE html>
+<html lang="en">
 
-      <header class="header">
-        <a class="logo" href="index.html">La casaca</a>
-        <nav>
-          <ul class="nav_links">
-            <li><a id="verTienda" href="index.html">Tienda</a></li>
-            <li><a id="verMas" href="#">Más</a></li>
-          </ul>
-        </nav>
-      </header>
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/jpg" href=".\assets\img\favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>La Casaca | Login </title>
+  <link rel="stylesheet" href="assets/css/form.css">
+</head>
 
-      <div class="center">
-        <h1>Inicio de Sesión</h1>
-        <form id="login-form" method="post">
+<body>
+  <div class="contenedor">
 
-          <div class="txt_field">
-            <input name=usuario id="usuario" type="text" required>
-            <span></span>
-            <label>Usuario</label>
-          </div>
+    <header class="header">
+      <a class="logo" href="index.html">La casaca</a>
+      <nav>
+        <ul class="nav_links">
+          <li><a id="verTienda" href="index.html">Tienda</a></li>
+          <li><a href="contacto.html">Contactanos</a></li>
+        </ul>
+      </nav>
+    </header>
 
-          <div class="txt_field">
-            <input name=password id="contraseña" type="password" required>
-            <span></span>
-            <label>Contraseña</label>
-          </div>
+    <div class="center">
+      <h1>Inicio de Sesión</h1>
+      <form id="login-form" method="post">
 
-          <input id="login-button" type="submit" value="Login">
-        </form>
-      </div>
+        <div class="txt_field">
+          <input name=usuario id="usuario" type="text" required>
+          <span></span>
+          <label>Usuario</label>
+        </div>
+
+        <div class="txt_field">
+          <input name=password id="contraseña" type="password" required>
+          <span></span>
+          <label>Contraseña</label>
+        </div>
+
+        <input id="login-button" type="submit" value="Login">
+      </form>
     </div>
-    <script src="./assets/js/login.js"></script>
-    <script src="./assets/js/alertas.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  </body>
-</html>
+  </div>
+  <script src="./assets/js/login.js"></script>
+  <script src="./assets/js/alertas.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
 
+</html>

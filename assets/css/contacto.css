@@ -8,7 +8,7 @@
 }
 
 body {
-  background: url(../img/background/background_login.jpg);
+  background: url(../img/background/background_contacto.png);
   color: #333333;
 }
 
@@ -64,7 +64,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 600px;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.445);
@@ -147,10 +147,4 @@ input[type="submit"]:hover {
   border-color: #ffffff;
   background: #706c61;
   transition: .5s;
-}
-
-/*____________________Alertas*/
-.alert {
-  border-radius: 10px;
-  color: #333333;
 }
